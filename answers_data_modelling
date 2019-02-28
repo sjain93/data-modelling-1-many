@@ -1,0 +1,35 @@
+1.
+
+one_to_many_assignment=# select title from articles where author_id = (select id from authors where name = 'Kara Melton')                                     ;
+                                              title
+--------------------------------------------------------------------------------------------------
+ How Tech Business Models Come From Marginalized Communities, But Startups Are Still Mostly White
+ Confronting the Assumption of Whiteness in Virtual Spaces
+(2 rows)
+
+
+2.
+
+one_to_many_assignment=# select name from cities where province_id = (select id from provinces where name='Ontario');
+  name
+---------
+ Toronto
+ Ottawa
+(2 rows)
+
+3.
+one_to_many_assignment=# select name from authors where id = (select author_id from articles where title = 'Coding Bootcamps and Emotional Labor');
+       name
+-------------------
+ Tilde Ann Thurium
+(1 row)
+
+4. one_to_many_assignment=# create view canada_provinces as select distinct name from provinces where country_id = (select id from countries where name = 'Canada');
+CREATE VIEW
+one_to_many_assignment=# select count(name) from canada_provinces;
+ count
+-------
+    13
+(1 row)
+
+5.

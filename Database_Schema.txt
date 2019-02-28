@@ -1,0 +1,73 @@
+Database Schema
+Schema |      Name       | Type  |    Owner    |   Table    
+--------+-----------------+-------+-------------+------------
+ public | articles_pkey   | index | sanchitjain | articles
+ public | authors_pkey    | index | sanchitjain | authors
+ public | cities_pkey     | index | sanchitjain | cities
+ public | countries_pkey  | index | sanchitjain | countries
+ public | persons_pkey    | index | sanchitjain | persons
+ public | provinces_pkey  | index | sanchitjain | provinces
+ public | residences_pkey | index | sanchitjain | residences
+
+
+articles
+  Column   |          Type          | Collation | Nullable |               Default                
+-----------+------------------------+-----------+----------+--------------------------------------
+ id        | integer                |           | not null | nextval('articles_id_seq'::regclass)
+ author_id | integer                |           |          | 
+ title     | character varying(255) |           |          | 
+ body      | text                   |           |          | 
+ date      | date                   |           |          | 
+
+
+Authors
+
+ Column |          Type          | Collation | Nullable |               Default               
+--------+------------------------+-----------+----------+-------------------------------------
+ id     | integer                |           | not null | nextval('authors_id_seq'::regclass)
+ name   | character varying(255) |           |          | 
+ bio    | text                   |           |          | 
+
+
+Cities
+
+   Column    |          Type          | Collation | Nullable |              Default               
+--------------+------------------------+-----------+----------+------------------------------------
+ id           | integer                |           | not null | nextval('cities_id_seq'::regclass)
+ name         | character varying(255) |           |          | 
+ year_founded | integer                |           |          | 
+ province_id  | integer                |           |          | 
+
+Countries
+     Column      |          Type          | Collation | Nullable |                Default                
+-----------------+------------------------+-----------+----------+---------------------------------------
+ id              | integer                |           | not null | nextval('countries_id_seq'::regclass)
+ name            | character varying(255) |           |          | 
+ year_founded    | integer                |           |          | 
+ national_animal | character varying(255) |           |          | 
+
+Persons
+   Column    |          Type          | Collation | Nullable |               Default               
+--------------+------------------------+-----------+----------+-------------------------------------
+ id           | integer                |           | not null | nextval('persons_id_seq'::regclass)
+ name         | character varying(255) |           |          | 
+ age          | integer                |           |          | 
+ residence_id | integer                |           |          | 
+
+
+Provinces
+  Column    |          Type          | Collation | Nullable |                Default                
+--------------+------------------------+-----------+----------+---------------------------------------
+ id           | integer                |           | not null | nextval('provinces_id_seq'::regclass)
+ name         | character varying(255) |           |          | 
+ year_founded | integer                |           |          | 
+ country_id   | integer                |           |          | 
+
+Residences
+                                   
+   Column   |          Type          | Collation | Nullable |                Default                 
+------------+------------------------+-----------+----------+----------------------------------------
+ id         | integer                |           | not null | nextval('residences_id_seq'::regclass)
+ address    | character varying(255) |           |          | 
+ year_built | integer                |           |          | 
+ city_id    | integer                |           |          | 
